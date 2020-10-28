@@ -14,7 +14,6 @@ function App() {
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
       if (authUser) {
-        console.log(authUser);
         dispatch(
           login({
             displayName: authUser.displayName,
@@ -37,8 +36,8 @@ function App() {
             <Chat />
           </>
         ) : (
-          <Login />
-        )}
+            <Login />
+          )}
       </div>
     </div>
   );

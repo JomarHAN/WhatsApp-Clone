@@ -1,0 +1,29 @@
+.message{
+    font-size: 16px;
+    padding: 10px;
+    width: fit-content;
+    background-color: #ffffff;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+}
+
+.message__userName{
+    font-weight: 800;
+    font-size: medium;
+    color: green;
+    margin-bottom: 5px;
+}
+
+.message__timestamp{
+    margin-left: auto;
+    color: gray;
+    margin-top: 5px;
+}
+
+.message__sender{
+    background-color: rgb(202, 243, 202);
+    margin-left: auto;
+}
