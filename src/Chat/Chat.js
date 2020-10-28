@@ -8,7 +8,6 @@ import "./Chat.css";
 import axios from "../axios";
 import { selectUser } from "../features/userSlice";
 import Pusher from "pusher-js";
-import { format } from "timeago.js";
 
 function Chat() {
   const chatName = useSelector(selectChatName);
