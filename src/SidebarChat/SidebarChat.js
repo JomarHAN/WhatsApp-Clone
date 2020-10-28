@@ -12,7 +12,7 @@ function SidebarChat({ id, name }) {
   const [lastMsg, setLastMsg] = useState("");
   const [lastTimestamp, setLastTimestamp] = useState("");
   const [lastPhoto, setLastPhoto] = useState("");
-  const pusher = new Pusher("cc2254540daa48af75e4", {
+  const pusher = new Pusher("PUSHER_KEY", {
     cluster: "us2",
   });
 
