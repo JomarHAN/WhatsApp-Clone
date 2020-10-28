@@ -12,7 +12,7 @@ import Pusher from "pusher-js";
 function Sidebar() {
   const user = useSelector(selectUser);
   const [chats, setChats] = useState([]);
-  const pusher = new Pusher("cc2254540daa48af75e4", {
+  const pusher = new Pusher("PUSHER_KEY", {
     cluster: "us2",
   });
 
