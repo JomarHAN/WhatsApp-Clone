@@ -16,7 +16,7 @@ function Chat() {
   const user = useSelector(selectUser);
   const [messages, setMessages] = useState([]);
 
-  const pusher = new Pusher("cc2254540daa48af75e4", {
+  const pusher = new Pusher("PUSHER_KEY", {
     cluster: "us2",
   });
 
