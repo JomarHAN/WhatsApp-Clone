@@ -2,12 +2,18 @@ import { Avatar } from "@material-ui/core";
 import { InsertEmoticon, MicOutlined } from "@material-ui/icons";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { selectChatId, selectChatName } from "../features/chatSlice";
+import {
+  selectChatId,
+  selectChatName,
+  selectChatTime,
+} from "../features/chatSlice";
 import Message from "../Message/Message";
 import "./Chat.css";
 import axios from "../axios";
 import { selectUser } from "../features/userSlice";
 import Pusher from "pusher-js";
+import FlipMove from "react-flip-move";
+import * as timeago from "timeago.js";
 
 function Chat() {
   const chatName = useSelector(selectChatName);
@@ -15,8 +21,9 @@ function Chat() {
   const chatId = useSelector(selectChatId);
   const user = useSelector(selectUser);
   const [messages, setMessages] = useState([]);
+  const chatTime = useSelector(selectChatTime);
 
-  const pusher = new Pusher("PUSHER_KEY", {
+  const pusher = new Pusher("cc2254540daa48af75e4", {
     cluster: "us2",
   });
 
@@ -54,20 +61,22 @@ function Chat() {
         <div className="chat__headerInfo">
           <h3>{chatName}</h3>
           <p>
-            Last seen at: <span>few minutes ago</span>
+            Last seen at: <span>{timeago.format(chatTime)}</span>
           </p>
         </div>
       </div>
       <div className="chat__body">
-        {messages.map(({ message, _id, timestamp, user }) => (
-          <Message
-            key={_id}
-            id={_id}
-            timestamp={timestamp}
-            user={user}
-            message={message}
-          />
-        ))}
+        <FlipMove>
+          {messages.map(({ message, _id, timestamp, user }) => (
+            <Message
+              key={_id}
+              id={_id}
+              timestamp={timestamp}
+              user={user}
+              message={message}
+            />
+          ))}
+        </FlipMove>
       </div>
       <div className="chat__footer">
         <InsertEmoticon />

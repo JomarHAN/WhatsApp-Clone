@@ -12,7 +12,7 @@ function SidebarChat({ id, name }) {
   const [lastMsg, setLastMsg] = useState("");
   const [lastTimestamp, setLastTimestamp] = useState("");
   const [lastPhoto, setLastPhoto] = useState("");
-  const pusher = new Pusher("PUSHER_KEY", {
+  const pusher = new Pusher("cc2254540daa48af75e4", {
     cluster: "us2",
   });
 
@@ -41,7 +41,11 @@ function SidebarChat({ id, name }) {
   return (
     <div
       className="sidebarChat"
-      onClick={() => dispatch(setChatRoom({ chatId: id, chatName: name }))}
+      onClick={() =>
+        dispatch(
+          setChatRoom({ chatId: id, chatName: name, chatTime: lastTimestamp })
+        )
+      }
     >
       <Avatar src={lastPhoto} />
       <div className="sidebarChat__info">
