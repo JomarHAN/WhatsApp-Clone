@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const instance = axios.create({
-    baseURL: 'https://whatsapp-clone-jmn.herokuapp.com/'
+    baseURL: 'https://whasapp-clone-be.herokuapp.com/'
 })
 
 export default instance

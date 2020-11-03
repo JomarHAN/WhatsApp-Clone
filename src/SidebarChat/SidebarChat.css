@@ -16,6 +16,7 @@
     flex-direction: column;
     max-width: 90%;
     min-width: 90%;
+    position: relative;
 }
 
 .sidebarChat__info > h2{
@@ -30,6 +31,9 @@
 }
 
 .sidebarChat__info > small{
-    margin-left: auto;
+    
     color: gray;
+    position: absolute;
+    right: 0;
+    bottom: -10px;
 }

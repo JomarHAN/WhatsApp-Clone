@@ -19,6 +19,7 @@
 
 .sidebar__user > p{
     margin-left: 15px;
+    font-weight: 900;
 }
 
 .sidebar__headerRight > .MuiSvgIcon-root{
@@ -69,4 +70,12 @@
 .sidebar__chats{
     -ms-overflow-style: none;
     scrollbar-width: none;
+}
+
+form > .MuiFormControl-root{
+    width: 100%;
+}
+
+.addChatBtn{
+    margin-top: 10px!important;
 }
