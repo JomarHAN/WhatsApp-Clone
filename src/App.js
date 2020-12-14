@@ -6,10 +6,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { login, logout, selectUser } from "./features/userSlice";
 import Login from "./Login/Login";
 import { auth } from "./firebase";
+import { selectChatClick } from "./features/chatSlice";
 
 function App() {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
+  const chatClick = useSelector(selectChatClick);
 
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
@@ -32,12 +34,18 @@ function App() {
       <div className="app__body">
         {user ? (
           <>
-            <Sidebar />
-            <Chat />
+            <div
+              className={`app__sidebar ${chatClick ? "app__sidebarOut" : ""}`}
+            >
+              <Sidebar />
+            </div>
+            <div className={`app__chat ${chatClick ? "app__chatIn" : ""}`}>
+              <Chat />
+            </div>
           </>
         ) : (
-            <Login />
-          )}
+          <Login />
+        )}
       </div>
     </div>
   );

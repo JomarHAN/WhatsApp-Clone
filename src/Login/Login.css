@@ -58,3 +58,15 @@
 .login__info > p{
     text-align: center;
 }
+
+@media only screen and (max-width: 768px){
+    .login > img{
+        width: 150px;
+    }
+}
+
+@media only screen and (max-width: 425px){
+    .login__info{
+        width: 70%;
+    }
+}

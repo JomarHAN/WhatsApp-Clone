@@ -17,6 +17,7 @@ import { selectUser } from "../features/userSlice";
 import axios from "../axios";
 import Pusher from "pusher-js";
 import FlipMove from "react-flip-move";
+import { selectChatClick } from "../features/chatSlice";
 
 function getModalStyle() {
   const top = 50;
@@ -47,6 +48,8 @@ function Sidebar() {
   const [open, setOpen] = useState(false);
   const classes = useStyles();
   const [modalStyle] = useState(getModalStyle);
+  const chatClick = useSelector(selectChatClick);
+
   const pusher = new Pusher("PUSHER_KEY", {
     cluster: "us2",
   });

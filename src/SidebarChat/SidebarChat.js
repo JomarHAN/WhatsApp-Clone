@@ -2,7 +2,7 @@ import { Avatar } from "@material-ui/core";
 import axios from "../axios";
 import React, { forwardRef, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { setChatRoom } from "../features/chatSlice";
+import { setChatRoom, setClick } from "../features/chatSlice";
 import "./SidebarChat.css";
 import Pusher from "pusher-js";
 import { format } from "timeago.js";
@@ -38,16 +38,15 @@ const SidebarChat = forwardRef(({ id, name }, ref) => {
     };
   }, [id]);
 
+  const clickChatRoom = () => {
+    dispatch(
+      setChatRoom({ chatId: id, chatName: name, chatTime: lastTimestamp })
+    );
+    dispatch(setClick({ chatClick: true }));
+  };
+
   return (
-    <div
-      ref={ref}
-      className="sidebarChat"
-      onClick={() =>
-        dispatch(
-          setChatRoom({ chatId: id, chatName: name, chatTime: lastTimestamp })
-        )
-      }
-    >
+    <div ref={ref} className="sidebarChat" onClick={clickChatRoom}>
       <Avatar src={lastPhoto} />
       <div className="sidebarChat__info">
         <h2>{name}</h2>

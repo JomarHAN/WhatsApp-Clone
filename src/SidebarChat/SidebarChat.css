@@ -4,6 +4,7 @@
     cursor: pointer;
     border-bottom: 1px solid lightgray;
     align-items: center;
+
 }
 
 .sidebarChat:hover{
@@ -14,8 +15,7 @@
     margin: 5px 15px;
     display: flex;
     flex-direction: column;
-    max-width: 90%;
-    min-width: 90%;
+    width: 100%;
     position: relative;
 }
 
@@ -31,9 +31,8 @@
 }
 
 .sidebarChat__info > small{
-    
     color: gray;
     position: absolute;
-    right: 0;
+    right: 0px;
     bottom: -10px;
 }

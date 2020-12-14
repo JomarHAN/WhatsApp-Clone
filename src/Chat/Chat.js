@@ -1,11 +1,13 @@
-import { Avatar } from "@material-ui/core";
-import { InsertEmoticon, MicOutlined } from "@material-ui/icons";
+import { Avatar, IconButton } from "@material-ui/core";
+import { InsertEmoticon, MicOutlined, Backspace } from "@material-ui/icons";
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
+  selectChatClick,
   selectChatId,
   selectChatName,
   selectChatTime,
+  setClick,
 } from "../features/chatSlice";
 import Message from "../Message/Message";
 import "./Chat.css";
@@ -22,6 +24,8 @@ function Chat() {
   const user = useSelector(selectUser);
   const [messages, setMessages] = useState([]);
   const chatTime = useSelector(selectChatTime);
+  const chatClick = useSelector(selectChatClick);
+  const dispatch = useDispatch();
 
   const pusher = new Pusher("PUSHER_KEY", {
     cluster: "us2",
@@ -57,12 +61,19 @@ function Chat() {
   return (
     <div className="chat">
       <div className="chat__header">
-        <Avatar />
-        <div className="chat__headerInfo">
-          <h3>{chatName}</h3>
-          <p>
-            Last seen at: <span>{timeago.format(chatTime)}</span>
-          </p>
+        <div className="chat__headerLeft">
+          <Avatar />
+          <div className="chat__headerInfo">
+            <h3>{chatName}</h3>
+            <p>
+              Last seen at: <span>{timeago.format(chatTime)}</span>
+            </p>
+          </div>
+        </div>
+        <div className="chat__headerRight">
+          <IconButton onClick={() => dispatch(setClick({ chatClick: false }))}>
+            <Backspace />
+          </IconButton>
         </div>
       </div>
       <div className="chat__body">
