@@ -1,7 +1,7 @@
 import firebase from 'firebase';
 
 const firebaseApp = firebase.initializeApp({
-    apiKey: "AIzaSyATd5_6bN0af1eHpfayI7Gy1Ras9VDkOEk",
+    apiKey: "API_KEY",
     authDomain: "whatsapp-clone-78a4c.firebaseapp.com",
     databaseURL: "https://whatsapp-clone-78a4c.firebaseio.com",
     projectId: "whatsapp-clone-78a4c",

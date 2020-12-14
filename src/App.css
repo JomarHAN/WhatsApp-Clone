@@ -41,6 +41,7 @@
 @media only screen and (max-width: 425px){
   .app__body{
     position: relative;
+    overflow: hidden;
   }
   
   .app__sidebar, .app__chat{
@@ -53,10 +54,12 @@
   .app__chat{
     z-index: 5;
     transform: translateX(100%);
+
   }
 
   .app__chatIn{
     transform: translateX(0);
+
   }
 
 
@@ -66,5 +69,6 @@
 
   .app__sidebarOut{
     transform: translateX(-100%);
+
   }
 }

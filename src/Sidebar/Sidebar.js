@@ -48,7 +48,6 @@ function Sidebar() {
   const [open, setOpen] = useState(false);
   const classes = useStyles();
   const [modalStyle] = useState(getModalStyle);
-  const chatClick = useSelector(selectChatClick);
 
   const pusher = new Pusher("PUSHER_KEY", {
     cluster: "us2",
